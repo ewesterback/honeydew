@@ -16,5 +16,6 @@ export const REMOVE_LIST = 'REMOVE_LIST'
 
 // USER
 export const GET_USER = 'GET_USER'
+export const SET_AUTH = 'SET_AUTH'
 export const CHANGE_USER_INFO = 'CHANGE_USER_INFO'
 export const REMOVE_USER = 'REMOVE_USER'

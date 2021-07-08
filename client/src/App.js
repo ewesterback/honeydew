@@ -1,18 +1,22 @@
 import './styles/App.css'
 import { React, useEffect } from 'react'
-import {Route} from 'react-router-dom'
+import {Route, Switch, useHistory} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {
   LoadItems,
-  StageTodo,
+  StageItem,
   AddItem,
   RemoveItem,
   ToggleComplete
 } from './store/actions/ItemActions'
 import {} from './store/actions/ListActions'
-import {} from './store/actions/UserActions'
+import {
+  LoadUser,
+  SetAuth
+} from './store/actions/UserActions'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Dashboard from './pages/Dashboard'
 
 const mapStateToProps = ({ itemState, listState, userState }) => {
   return { itemState, listState, userState }
@@ -20,27 +24,60 @@ const mapStateToProps = ({ itemState, listState, userState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    // ITEMS
     fetchItems: (listID)=> dispatch(LoadItems(listID)),
-    stageItem: (value) => dispatch(StageTodo(value)),
+    stageItem: (value) => dispatch(StageItem(value)),
     addItem: (item)=> dispatch(AddItem(item)),
     removeItem: (itemID)=> dispatch(RemoveItem(itemID)),
-    toggleComplete: (itemID,status) => dispatch(ToggleComplete(itemID,status))
+    toggleComplete: (itemID,status) => dispatch(ToggleComplete(itemID,status)),
+    // LISTS
+    // USER
+    fetchUser: (loginEmail,loginPassword) => dispatch(LoadUser(loginEmail,loginPassword)),
+    setAuth: (bool) => dispatch(SetAuth(bool)),
   }
 }
 
 
 function App(props) {
-  // functions will go here
-  useEffect(()=>{
-    // get lists by userID function from dispatch, when added
-  },[])
+  const history = useHistory()
+  const { userState, itemState, listState } = props
+
+    //// AUTHENTICATION
+
+
+    const logOut = () => {
+      props.setAuth(false)
+      localStorage.clear()
+      history.push('/')
+    }
+    const getToken = () => {
+      let token = localStorage.getItem('token')
+      if (token) {
+        return props.setAuth(true)
+      }
+    }
+  useEffect(() => {
+    getToken()
+  }, [])
+
   
   return (
-    <div className="App">
-      hi i'm an app
-      <Login/>
+    <Switch>
+      <Route
+        path="/login"
+        component={(props) => (
+          <Login {...props}
+          userState = {userState} />
+        )}
+      />
+      <Route
+        exact path="/"
+        component={(props)=>(
+          <Dashboard {...props} />
+        )}
+      />
       <Register/>
-    </div>
+    </Switch>
   );
 }
 

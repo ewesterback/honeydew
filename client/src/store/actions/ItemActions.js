@@ -27,7 +27,7 @@ export const LoadItems = (listID) => {
   }
 }
 
-export const StageTodo = (formValue) => ({
+export const StageItem = (formValue) => ({
   type: STAGE_ITEM,
   payload: formValue
 })

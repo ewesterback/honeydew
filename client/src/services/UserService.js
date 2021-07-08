@@ -1,13 +1,13 @@
 import API from './'
 
-export const GetUserById = async (id) => {
+export const GetUserByLogin = async (loginEmail, loginPassword) => {
   try {
-    const res = await API.get(
-      // get by id from backend
-    )
-    return res.data.results  // ??? or just res.data ??
+    const res = await API.post(`/login`, {
+      email: loginEmail,
+      password: loginPassword
+    })
+    return res.data.user               // ??? or just res.data ??
   } catch (error) {
     throw error
   }
 }
-
