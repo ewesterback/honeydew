@@ -1,19 +1,19 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Login from './Login'
 
-
-
 const Dashboard = (props) => {
-  const {userState} = props
-  useEffect(()=>{
+  //const { userState } = props
+  console.log(props)
+  console.log(props.userState)
+  useEffect(() => {
     // get lists by userID function from dispatch in App.js, when added
-  },[])
-  return(
+  }, [])
+  return (
     <div>
-      {userState.authenticated ? (
+      {props.userState.authenticated ? (
         <h1> Hey, you made it! :D Welcome!</h1>
       ) : (
-        <Login {...props}/>
+        <Login {...props} fetchUser={props.fetchUser} />
       )}
     </div>
   )

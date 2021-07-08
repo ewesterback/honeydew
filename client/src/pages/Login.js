@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 
-
-
 const Login = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -12,13 +10,13 @@ const Login = (props) => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value)
   }
-  const logIn= async (e) => {
+  const logIn = async (e) => {
     e.preventDefault()
-    props.fetchUser(email,password)
+    props.fetchUser(email, password)
     props.history.push(`/`)
   }
 
-  return(
+  return (
     <div>
       <form>
         <input
@@ -33,9 +31,7 @@ const Login = (props) => {
           onChange={handlePasswordChange}
           placeholder="Password"
         />
-        <button onClick={logIn}>
-          Log In
-        </button>
+        <button onClick={logIn}>Log In</button>
       </form>
     </div>
   )
