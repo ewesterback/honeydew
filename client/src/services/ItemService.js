@@ -14,7 +14,7 @@ export const PostNewItem = async (newItem) => {
     const res = await API.post('/items',              // whatever emily sets it as
       {
         title: newItem.title,
-        details: newItem.details,
+        content: newItem.content,
         dueDate: newItem.dueDate
       })
     return res.data                                   // ???
@@ -42,6 +42,19 @@ export const SetPriority = async (itemID, priority) => {
       priority: `i have no idea`                      // whatever emily sets it as
     })
     return res.data                                   // ???
+  } catch (error) {
+    throw error
+  }
+}
+
+export const UpdateItemInfo = async (itemID) => {
+  try {
+    const res = await API.put(`items/${itemID}`,    // whatever emily sets it as
+    {
+      title: `w/e it needs to be to make it update`,
+      content: `w/e it needs to be to make it update`
+    })
+    return res.data                                 // ???
   } catch (error) {
     throw error
   }
