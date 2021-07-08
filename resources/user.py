@@ -1,6 +1,7 @@
 from flask_restful import Resource
 from flask import request
 from models.user import User
+from sqlalchemy.orm import joinedload
 from middleware import create_token, read_token, gen_password, compare_password, strip_token
 
 
@@ -8,10 +9,6 @@ class Login(Resource):
     def post(self):
         data = request.get_json()
         user = User.find_by_email(data['email'])
-        print('Hi!')
-        print(user)
-        print(data['password'])
-        print(user.password_digest)
         if user and compare_password(data['password'], user.password_digest):
             payload = {
                 "id": user.id,
@@ -43,3 +40,17 @@ class Register(Resource):
         user = User(**params)
         user.create()
         return user.json(), 201
+
+
+class Users(Resource):
+    def get(self):
+        users = User.find_all()
+        return [user.json() for user in users]
+
+
+class UserDetail(Resource):
+    def get(self, user_id):
+        user = User.query.options(joinedload(
+            'lists')).filter_by(id=user_id).first()
+        lists = [l.json() for l in user.lists]
+        return {**user.json(), "lists": lists}
