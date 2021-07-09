@@ -20,7 +20,7 @@ export const PostNewItem = async (newItem) => {
         title: newItem.title,
         content: newItem.content,
         priority: newItem.priority,
-        dueDate: newItem.dueDate,
+        due_date: newItem.due_date,
         list_id: newItem.list_id
       }
     )
