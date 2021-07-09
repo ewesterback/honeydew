@@ -33,6 +33,17 @@ button {
   width:20%;
   min-width:180px;
   max-width: 300px;
+  margin-bottom: 1em;
+}
+.welcome {
+  width: 100%;
+  padding: 0.5em 0;
+  background-color: rgb(175, 108, 196);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
 }
 .login-page h2 {
   width: 80vw;
@@ -40,16 +51,14 @@ button {
   font-size: 5em;
   margin: 0;
   font-family: 'Zen Loop', cursive;
-  text-shadow: 0 0 40px rgba(139, 0, 139,0.5);
   transition: ease-in-out 0.3s;
 }
 .login-page h3 {
   width: 80vw;
   color: white;
   font-size: 2em;
-  margin: 0 0 1em 0;
+  margin: 0 0 0.5em 0;
   font-family: 'Righteous', cursive;
-  text-shadow: 0 0 30px rgba(139, 0, 139,0.3);
   letter-spacing: 0.05em;
   transition: ease-in-out 0.3s;
 }
@@ -93,6 +102,7 @@ button {
 }
 .login-form button, .signup-form button {
   transition: ease-in-out 0.2s;
+  background-color: #ede4f6;
 }
 
 .login-form button:hover, .signup-form button:hover {
