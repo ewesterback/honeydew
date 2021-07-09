@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import Login from './Login'
 import Todos from './Todos'
+import logo from '../styles/honeydew-logo.png'
 
 const Dashboard = (props) => {
   console.log('dashboard')
@@ -13,7 +14,7 @@ const Dashboard = (props) => {
       {userState.authenticated ? (
         <div className="dashboard-page">
           <aside>
-
+            <img src={logo} alt="logo" height="80" />
             <button>My Profile</button>
             <button className="logout-button" onClick={props.logOut}>Log Out</button>
           </aside>

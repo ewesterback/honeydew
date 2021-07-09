@@ -76,20 +76,23 @@ button {
 .dashboard-page {
   height: 100vh;
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 20% 80%;
 }
 aside {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  background-color: aquamarine;
+  background-color: rgb(204, 196, 207);
   padding: 2em;
+}
+aside img {
+  margin: 0 0 2em 0;
 }
 aside button {
   margin: 1em 0em;
 }
 main {
-
+  padding: 4em;
 }
 .list-display{
   display: flex;
