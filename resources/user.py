@@ -7,7 +7,10 @@ from middleware import create_token, read_token, gen_password, compare_password,
 
 class Login(Resource):
     def post(self):
+        print('hi')
+        print(request)
         data = request.get_json()
+        print(data)
         user = User.find_by_email(data['email'])
         if user and compare_password(data['password'], user.password_digest):
             payload = {
