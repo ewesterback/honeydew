@@ -52,8 +52,7 @@ const Register = (props) => {
         <button onClick={signUp}>Sign Up</button>
       </form>
       <p id="bottomline">
-        Already have an account?
-        <a href="/login">Go ahead and log in!</a>
+        Already have an account? <a href="/login">Go ahead and log in!</a>
       </p>
     </div>
   )
