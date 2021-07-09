@@ -95,8 +95,9 @@ const Todos = (props) => {
       ) : (
         <Button
           variant="brand"
-          label="add to-do"
+          label="Add a To-Do"
           onClick={props.toggleNewTodoForm}
+          style={{fontFamily:'Righteous,cursive',letterSpacing:'0.03em'}}
         />
       )}
 

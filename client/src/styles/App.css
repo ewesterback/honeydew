@@ -176,7 +176,13 @@ main {
 .logout-button{
   margin-top: 3em;
   background-color: darkmagenta;
+  border-radius: 25px;
   color: white;
+}
+.addlist-button{
+  margin-top: 3em;
+  border-radius: 25px;
+  background-color: #bdeb9b;
 }
 
 
