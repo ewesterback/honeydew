@@ -4,7 +4,8 @@ import {
   Button,
   DatePicker,
   Textarea,
-  Card
+  Card,
+  CheckboxToggle
 } from 'react-rainbow-components'
 //import 'rsuite/dist/styles/rsuite-default.css'
 
@@ -27,12 +28,17 @@ const TodoForm = (props) => {
             onChange={props.handleTitleChange}
             className="form-item"
           />
-          <Input
+          <CheckboxToggle
+            value={props.itemState.newItem.priority}
+            onChange={props.handlePriorityChange}
+            label="High Priority?"
+          />
+          {/* <Input
             placeholder="priority"
             value={props.itemState.newItem.priority}
             onChange={props.handlePriorityChange}
             className="form-item"
-          />
+          /> */}
           <Textarea
             placeholder="content"
             value={props.itemState.newItem.content}

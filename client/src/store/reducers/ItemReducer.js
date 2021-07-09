@@ -14,7 +14,7 @@ const iState = {
   newItem: {
     title: '',
     content: '',
-    priority: '',
+    priority: false,
     due_date: '',
     list_id: ''
   },
@@ -53,21 +53,23 @@ const ItemReducer = (state = iState, action) => {
         newItem: {
           title: '',
           content: '',
-          priority: '',
+          priority: false,
           due_date: '',
           list_id: ''
         }
       }
     case REMOVE_ITEM: //DELETE_TODO
-      // can also use filter
-      // todos: state.todos.filter((todo) => todo.id !== action.payload.item)
-      let index = state.items.findIndex((item) => {
-        if (item.id === action.payload) {
-          return true
-        }
-      })
-      state.items.splice(index, 1)
-      break
+      // let index = state.items.findIndex((item) => {
+      //   if (item.id === action.payload) {
+      //     return true
+      //   }
+      // })
+      // state.items.splice(index, 1)
+      // break
+      return {
+        ...state,
+        items: state.items.filter((todo) => todo.id !== action.payload.item)
+      }
     case IS_COMPLETED:
       let i = state.items.findIndex((item) => {
         if (item.id === action.payload.id) {

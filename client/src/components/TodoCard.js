@@ -7,14 +7,15 @@ const TodoCard = (props) => {
     <div className="to-do-card">
       <Card>
         <h2>
-          {props.todo.title} | Due {moment(props.todo.dueDate).fromNow()}
+          {props.todo.title} | Due {moment(props.todo.due_date).fromNow()}
         </h2>
-        <p>{moment(props.todo.dueDate).format('M-D-YYYY')}</p>
-        <p>{props.todo.description}</p>
+        <p>{moment(props.todo.due_date).format('M-D-YYYY')}</p>
+        <p>{props.todo.content}</p>
         <Button
           variant="destructive"
           onClick={() => props.handleDelete(props.todo.id)}
           label="delete"
+          size="small"
         />
       </Card>
     </div>
