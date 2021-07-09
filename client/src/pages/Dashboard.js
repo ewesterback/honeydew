@@ -12,6 +12,7 @@ const Dashboard = (props) => {
     <div>
       {userState.authenticated ? (
         <div>
+          <button onClick={props.logOut}>Log Out</button>
           <h1> Hey, you made it! :D Welcome!</h1>
           <Todos
             itemState={itemState}
