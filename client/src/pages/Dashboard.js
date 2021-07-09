@@ -32,7 +32,7 @@ const Dashboard = (props) => {
             <button>My Profile</button>
             
             {mappedLists}
-            <button onClick={props.createNewList}>Add List</button>
+            <button className="addlist-button" onClick={props.createNewList}>Add List</button>
             <button className="logout-button" onClick={props.logOut}>
               Log Out
             </button>
@@ -40,9 +40,8 @@ const Dashboard = (props) => {
             <button onClick={props.createNewList}>Add List</button>
           </aside>
           <main>
-            <h1> This is the dashboard</h1>
             {listState.selectedList ? (
-              <h1>{listState.selectedList.title}</h1>
+              <h1 style={{fontFamily:'Zen Loop,cursive',fontSize:'3em',margin:'0 0 0.5em 0'}}>{listState.selectedList.title}</h1>
             ) : (
               <h1>Please Select a list to see the todos</h1>
             )}
