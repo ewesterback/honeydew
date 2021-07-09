@@ -1,20 +1,21 @@
-import { 
+import {
   GetItemsByList,
   PostNewItem,
   SetCompleted,
   SetPriority,
   UpdateItemInfo,
   DeleteItem
- } from '../../services/ItemService'
-import { 
+} from '../../services/ItemService'
+import {
   GET_ITEMS,
   STAGE_ITEM,
   ADD_ITEM,
   CHANGE_ITEM,
   REMOVE_ITEM,
   IS_COMPLETED,
-  SET_PRIORITY
- } from '../types'
+  SET_PRIORITY,
+  TOGGLE_TODO_FORM
+} from '../types'
 
 export const LoadItems = (listID) => {
   return async (dispatch) => {
@@ -50,7 +51,7 @@ export const RemoveItem = (itemID) => {
   return async (dispatch) => {
     try {
       const item = await DeleteItem(itemID)
-      dispatch({ 
+      dispatch({
         type: REMOVE_ITEM,
         payload: itemID
       })
@@ -60,10 +61,10 @@ export const RemoveItem = (itemID) => {
   }
 }
 
-export const ToggleComplete = (itemID,status) => {
+export const ToggleComplete = (itemID, status) => {
   return async (dispatch) => {
     try {
-      const item = await SetCompleted(itemID,status)
+      const item = await SetCompleted(itemID, status)
       dispatch({
         type: IS_COMPLETED,
         payload: item
@@ -73,3 +74,6 @@ export const ToggleComplete = (itemID,status) => {
     }
   }
 }
+export const ToggleTodoForm = () => ({
+  type: TOGGLE_TODO_FORM
+})

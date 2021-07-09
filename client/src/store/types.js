@@ -1,6 +1,7 @@
 // ITEMS
 export const GET_ITEMS = 'GET_ITEMS'
 export const STAGE_ITEM = 'STAGE_ITEM'
+export const TOGGLE_TODO_FORM = 'TOGGLE_TODO_FORM'
 export const ADD_ITEM = 'ADD_ITEM'
 export const CHANGE_ITEM = 'CHANGE_ITEM'
 export const REMOVE_ITEM = 'REMOVE_ITEM'

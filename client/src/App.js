@@ -2,25 +2,28 @@ import './styles/App.css'
 import { React, useEffect } from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
+import moment from 'moment'
 import {
   LoadItems,
   StageItem,
   AddItem,
   RemoveItem,
-  ToggleComplete
+  ToggleComplete,
+  ToggleTodoForm
 } from './store/actions/ItemActions'
 import {} from './store/actions/ListActions'
-import { 
-  LoadUser, 
+import {
+  LoadUser,
   SetAuth,
   StageName,
   StageEmail,
   StagePass,
   AddUser
- } from './store/actions/UserActions'
+} from './store/actions/UserActions'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
+import Todos from './pages/Todos'
 
 const mapStateToProps = ({ itemState, listState, userState }) => {
   return { itemState, listState, userState }
@@ -29,19 +32,24 @@ const mapStateToProps = ({ itemState, listState, userState }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     // ITEMS
-    fetchItems: (listID) => dispatch(LoadItems(listID)),
-    stageItem: (value) => dispatch(StageItem(value)),
-    addItem: (item) => dispatch(AddItem(item)),
-    removeItem: (itemID) => dispatch(RemoveItem(itemID)),
-    toggleComplete: (itemID, status) =>
-      dispatch(ToggleComplete(itemID, status)),
+    fetchTodos: (listId) => dispatch(LoadItems(listId)),
+    handleTodoForm: () => dispatch(ToggleTodoForm()),
+    handleFormInput: (inputs) => dispatch(StageItem(inputs)),
+    handleSubmit: (body) => dispatch(AddItem(body)),
+    deleteTodo: (id) => dispatch(RemoveItem(id)),
+    // fetchItems: (listID) => dispatch(LoadItems(listID)),
+    // stageItem: (value) => dispatch(StageItem(value)),
+    // addItem: (item) => dispatch(AddItem(item)),
+    // removeItem: (itemID) => dispatch(RemoveItem(itemID)),
+    // toggleComplete: (itemID, status) =>
+    //   dispatch(ToggleComplete(itemID, status)),
     // LISTS
     // USER
     setName: (value) => dispatch(StageName(value)),
     setEmail: (value) => dispatch(StageEmail(value)),
     setPass: (value) => dispatch(StagePass(value)),
     postUser: (regEmail, regPassword, regUsername) =>
-      dispatch(AddUser(regEmail,regPassword,regUsername)),
+      dispatch(AddUser(regEmail, regPassword, regUsername)),
     fetchUser: (loginEmail, loginPassword) =>
       dispatch(LoadUser(loginEmail, loginPassword)),
     setAuth: (bool) => dispatch(SetAuth(bool))
@@ -75,6 +83,55 @@ function App(props) {
   const handlePasswordChange = (e) => {
     props.setPass(e.target.value)
   }
+  // ---------------------------------------------------------
+  // moved all of todo functions here since it was having issues
+  // --------------------------------------------------------
+  const loadTodosForList = (listId) => {
+    props.fetchTodos(listId)
+  }
+  const toggleNewTodoForm = () => {
+    props.handleTodoForm()
+  }
+  const submitTodo = (event) => {
+    event.preventDefault()
+    let date = moment(props.itemState.newItem.due_date).format('M-D-YYYY')
+    let reqBody = {
+      title: props.itemState.newItem.title,
+      content: props.itemState.newItem.content,
+      priority: props.itemState.newItem.priority,
+      due_date: date,
+      list_id: 1 //CHANGE THIS
+    }
+    props.handleSubmit(reqBody)
+    props.handleTodoForm()
+  }
+  const handleContentChange = (event) => {
+    let modifiedState = { ...itemState }
+    modifiedState.content = event.target.value
+    props.handleFormInput(modifiedState)
+  }
+  const handleTitleChange = (event) => {
+    console.log(event)
+    let modifiedState = { ...itemState }
+    modifiedState.title = event.target.value
+    props.handleFormInput(modifiedState)
+  }
+  const handleDateChange = (event) => {
+    console.log(event)
+    let modifiedState = { ...itemState }
+    modifiedState.due_date = event
+    props.handleFormInput(modifiedState)
+  }
+  const handlePriorityChange = (event) => {
+    let modifiedState = { ...itemState }
+    modifiedState.priority = event.target.value
+    props.handleFormInput(modifiedState)
+  }
+  const handleDelete = (id) => {
+    props.deleteTodo(id)
+  }
+
+  // ---------------------------------------------------------
 
   useEffect(() => {
     getToken()
@@ -85,8 +142,9 @@ function App(props) {
       <Route
         path="/login"
         render={(props) => (
-          <Login {...props} 
-            userState={userState} 
+          <Login
+            {...props}
+            userState={userState}
             fetchUser={fetchUser}
             handleEmailChange={handleEmailChange}
             handlePasswordChange={handlePasswordChange}
@@ -96,8 +154,9 @@ function App(props) {
       <Route
         path="/register"
         render={(props) => (
-          <Register {...props} 
-            userState={userState} 
+          <Register
+            {...props}
+            userState={userState}
             postUser={postUser}
             handleEmailChange={handleEmailChange}
             handlePasswordChange={handlePasswordChange}
@@ -113,6 +172,30 @@ function App(props) {
             {...props}
             userState={userState}
             fetchUser={props.fetchUser}
+            // itemState={itemState}
+            // loadTodosForList={loadTodosForList}
+            // submitTodo={submitTodo}
+            // handleContentChange={handleContentChange}
+            // handleTitleChange={handleTitleChange}
+            // handleDateChange={handleDateChange}
+            // handlePriorityChange={handlePriorityChange}
+            // handleDelete={handleDelete}
+          />
+        )}
+      />
+      <Route
+        path="/todos"
+        render={(props) => (
+          <Todos
+            itemState={itemState}
+            loadTodosForList={loadTodosForList}
+            toggleNewTodoForm={toggleNewTodoForm}
+            submitTodo={submitTodo}
+            handleContentChange={handleContentChange}
+            handleTitleChange={handleTitleChange}
+            handleDateChange={handleDateChange}
+            handlePriorityChange={handlePriorityChange}
+            handleDelete={handleDelete}
           />
         )}
       />
