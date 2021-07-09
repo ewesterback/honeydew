@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
+import logo from '../styles/honeydew-logo-bordered.png'
+
 
 const Register = (props) => {
-  // console.log('register')
   const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -30,6 +31,12 @@ const Register = (props) => {
 
   return (
     <div className="signup-page">
+      <img src={logo} />
+      <div className="intro">
+        <p>Need somewhere to track your "honey-do's"?
+        <br/><span className="title">Honeydew</span> is sweet— but not too sweet,
+        <br/>with only the bells and whistles you need.</p>
+      </div>
       <form className="signup-form">
         <input
           type="username"
@@ -49,13 +56,13 @@ const Register = (props) => {
           onChange={handlePasswordChange}
           placeholder="Password"
         />
-        <div style={{height:'120px',display:'flex',flexFlow:'column',justifyContent:'center',alignItems:'center'}}>
+        <div className="button-box">
         <button onClick={signUp}>Sign Up</button>
         </div>
       </form>
-      <p id="bottomline">
-        Already have an account? <a href="/login">Go ahead and log in!</a>
-      </p>
+      <footer>
+        <a href="/login">Already have an account?</a>
+      </footer>
     </div>
   )
 }
