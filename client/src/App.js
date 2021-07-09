@@ -95,10 +95,11 @@ function App(props) {
   const submitTodo = (event) => {
     event.preventDefault()
     let date = moment(props.itemState.newItem.due_date).format('M-D-YYYY')
+    let priority = props.itemState.newItem.priority ? 1 : 2
     let reqBody = {
       title: props.itemState.newItem.title,
       content: props.itemState.newItem.content,
-      priority: props.itemState.newItem.priority,
+      priority: priority,
       due_date: date,
       list_id: 1 //CHANGE THIS
     }
@@ -127,7 +128,8 @@ function App(props) {
   }
   const handlePriorityChange = (event) => {
     let modifiedState = { ...itemState.newItem }
-    modifiedState.priority = event.target.value
+    console.log(event)
+    modifiedState.priority = !modifiedState.priority
     props.handleFormInput(modifiedState)
   }
   const handleDelete = (id) => {
