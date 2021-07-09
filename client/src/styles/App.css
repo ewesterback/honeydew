@@ -174,7 +174,9 @@ main {
   flex-flow: row nowrap;
 }
 .logout-button{
-
+  margin-top: 3em;
+  background-color: darkmagenta;
+  color: white;
 }
 
 
@@ -185,11 +187,11 @@ main {
 /*////////////////////////////*/
 
 /* --- LIST --- */
-.item-display {
+/* .item-display {
   width: 25vw;
   margin: 15px;
   padding: 15px;
-}
+} */
 
 /* --- TODO FORM --- */
 .todo-form {
@@ -211,6 +213,24 @@ main {
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+}
+
+/* --- TODO CARD --- */
+.to-do-card{
+  width: 70%;
+  padding: 1.5em 1em;
+}
+topper {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Righteous', cursive;
+  letter-spacing: 0.05em;
+}
+topper h4 {
+  font-family: 'Zen Loop', cursive;
 }
 
 /*////////////////////////////*/

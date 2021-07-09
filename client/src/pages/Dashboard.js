@@ -30,6 +30,9 @@ const Dashboard = (props) => {
           <aside>
             <img src={logo} alt="logo" height="80" />
             <button>My Profile</button>
+            
+            {mappedLists}
+            <button onClick={props.createNewList}>Add List</button>
             <button className="logout-button" onClick={props.logOut}>
               Log Out
             </button>
@@ -54,6 +57,7 @@ const Dashboard = (props) => {
               handlePriorityChange={props.handlePriorityChange}
               handleDelete={props.handleDelete}
             />
+            
           </main>
         </div>
       ) : (

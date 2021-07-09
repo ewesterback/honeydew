@@ -18,9 +18,17 @@ const TodoForm = (props) => {
           padding: '1.5em 1em',
           fontFamily: 'Overlock'
         }}>
+        <h1
+          style={{
+            margin:'0 0 0.5em 0',
+            fontFamily:'Zen Loop,cursive',
+            fontSize:'2.5em'
+          }}
+        >New To-Do:</h1>
+
         <div className="form-card">
           <Input
-            placeholder="To-do Title"
+            placeholder="Title"
             value={props.itemState.newItem.title}
             onChange={props.handleTitleChange}
             className="form-item"
