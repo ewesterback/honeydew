@@ -1,11 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Login = (props) => {
-  console.log('login')
-  console.log(props)
+  // console.log('login')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value)
+  }
+
   const logIn = async (e) => {
     e.preventDefault()
-    props.fetchUser(props.userState.email, props.userState.password)
+    console.log(e.target.value)
+    props.fetchUser(email, password)
     props.history.push(`/`)
   }
 
@@ -14,14 +25,14 @@ const Login = (props) => {
       <form className="login-form">
         <input
           type="email"
-          value={props.userState.email}
-          onChange={props.handleEmailChange}
+          value={email}
+          onChange={handleEmailChange}
           placeholder="Email"
         />
         <input
           type="password"
-          value={props.userState.password}
-          onChange={props.handlePasswordChange}
+          value={password}
+          onChange={handlePasswordChange}
           placeholder="Password"
         />
         <button onClick={logIn}>Log In</button>
