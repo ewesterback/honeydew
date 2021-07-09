@@ -25,8 +25,10 @@ const Login = (props) => {
   return (
     <div className="login-page">
       <img src={logo} />
-      <h2>Welcome back, honey!</h2>
-      <h3>Let's get dew it.</h3>
+      <div className="welcome">
+        <h2>Welcome back, honey!</h2>
+        <h3>Let's get dew it.</h3>
+      </div>
       <form className="login-form">
         <input
           type="email"
