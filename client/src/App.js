@@ -11,7 +11,7 @@ import {
   ToggleComplete,
   ToggleTodoForm
 } from './store/actions/ItemActions'
-import { LoadLists, SelectList } from './store/actions/ListActions'
+import { LoadLists, SelectList, AddList } from './store/actions/ListActions'
 import {
   LoadUser,
   SetAuth,
@@ -46,6 +46,7 @@ const mapDispatchToProps = (dispatch) => {
     //// LISTS
     fetchLists: () => dispatch(LoadLists()),
     selectList: (list) => dispatch(SelectList(list)),
+    createList: (title) => dispatch(AddList(title)),
     //// USER
     // setName: (value) => dispatch(StageName(value)),
     // setEmail: (value) => dispatch(StageEmail(value)),
@@ -91,7 +92,9 @@ function App(props) {
   const loadListsForUser = () => {
     props.fetchLists()
   }
-
+  const createNewList = () => {
+    props.createList('home improvement')
+  }
   //// ---------------------------------------------------------
   //// moved all of todo functions here since it was having issues
   //// --------------------------------------------------------
@@ -184,6 +187,7 @@ function App(props) {
             loadListsForUser={loadListsForUser}
             listState={listState}
             logOut={logOut}
+            createNewList={createNewList}
             itemState={itemState}
             loadTodosForList={loadTodosForList}
             toggleNewTodoForm={toggleNewTodoForm}
