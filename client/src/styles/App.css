@@ -85,6 +85,9 @@ aside {
   background-color: aquamarine;
   padding: 2em;
 }
+aside button {
+  margin: 1em 0em;
+}
 main {
 
 }

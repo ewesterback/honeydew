@@ -13,10 +13,12 @@ const Dashboard = (props) => {
       {userState.authenticated ? (
         <div className="dashboard-page">
           <aside>
-          <button className="logout-button" onClick={props.logOut}>Log Out</button>
+
+            <button>My Profile</button>
+            <button className="logout-button" onClick={props.logOut}>Log Out</button>
           </aside>
           <main>
-            <h1> Hey, you made it! :D Welcome!</h1>
+            <h1> This is the dashboard</h1>
           {/* <Todos
             itemState={itemState}
             loadTodosForList={props.loadTodosForList}
