@@ -36,8 +36,6 @@ const Dashboard = (props) => {
             <button className="logout-button" onClick={props.logOut}>
               Log Out
             </button>
-            {mappedLists}
-            <button onClick={props.createNewList}>Add List</button>
           </aside>
           <main>
             {listState.selectedList ? (
