@@ -1,4 +1,4 @@
-import { GetListsByUser } from '../../services/ListService'
+import { GetListsByUser, CreateList } from '../../services/ListService'
 import {
   GET_LISTS,
   STAGE_LIST,
@@ -23,6 +23,17 @@ export const SelectList = (list) => ({
   type: SELECT_LIST,
   payload: list
 })
+
+export const AddList = (title) => {
+  return async (dispatch) => {
+    try {
+      const list = await CreateList(title)
+      dispatch({ type: ADD_LIST, payload: list })
+    } catch (error) {
+      throw error
+    }
+  }
+}
 
 // {
 //   return (dispatch) => {

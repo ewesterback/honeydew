@@ -71,3 +71,27 @@ class TodoListsByUser(Resource):
         # user = todo.user.json()
         # print(todo.todos)
         # return {**todo.json(), "user": user, "todos": [todo.json() for todo in todo.todos]}
+
+    def post(self, token):
+        # print(request)
+        data = request.get_json()
+        # print('*******')
+        print(data)
+        # print('***********')
+        print(token)
+        if token:
+            try:
+                payload = read_token(token)
+            except:
+                return {"message": "Unauthorized"}, 401
+        user_id = payload['id']
+        print(user_id)
+        params = {
+            'title': 'Home Improvement',
+            'user_id': user_id
+        }
+        todo = TodoList(**params)
+        todo.create()
+        return todo.json(), 201
+
+        return [todo.json() for todo in lists]
