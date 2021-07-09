@@ -106,12 +106,13 @@ function App(props) {
     event.preventDefault()
     let date = moment(props.itemState.newItem.due_date).format('M-D-YYYY')
     let priority = props.itemState.newItem.priority ? 1 : 2
+    console.log(listState.selectedList)
     let reqBody = {
       title: props.itemState.newItem.title,
       content: props.itemState.newItem.content,
       priority: priority,
       due_date: date,
-      list_id: 1 //CHANGE THIS
+      list_id: props.listState.selectedList.id //CHANGE THIS
     }
     props.handleSubmit(reqBody)
     props.handleTodoForm()
@@ -119,26 +120,20 @@ function App(props) {
   const handleContentChange = (event) => {
     let modifiedState = { ...itemState.newItem }
     modifiedState.content = event.target.value
-    console.log(modifiedState)
     props.handleFormInput(modifiedState)
   }
   const handleTitleChange = (event) => {
-    console.log(event)
     let modifiedState = { ...itemState.newItem }
     modifiedState.title = event.target.value
-    console.log(modifiedState)
     props.handleFormInput(modifiedState)
   }
   const handleDateChange = (event) => {
-    console.log(event)
     let modifiedState = { ...itemState.newItem }
     modifiedState.due_date = event
-    console.log(modifiedState)
     props.handleFormInput(modifiedState)
   }
   const handlePriorityChange = (event) => {
     let modifiedState = { ...itemState.newItem }
-    console.log(event)
     modifiedState.priority = !modifiedState.priority
     props.handleFormInput(modifiedState)
   }

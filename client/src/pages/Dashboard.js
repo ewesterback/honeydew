@@ -37,7 +37,11 @@ const Dashboard = (props) => {
           </aside>
           <main>
             <h1> This is the dashboard</h1>
-
+            {listState.selectedList ? (
+              <h1>{listState.selectedList.title}</h1>
+            ) : (
+              <h1>Please Select a list to see the todos</h1>
+            )}
             <Todos
               itemState={itemState}
               loadTodosForList={props.loadTodosForList}
