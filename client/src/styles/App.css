@@ -1,3 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
+}
+
+/* ----- PAGES ----- */
+/* LOGIN */
+.login-page, .signup-page {
+  height: 100vh;
+  text-align: center;
+  background-image: url('https://i.pinimg.com/originals/a3/ea/d0/a3ead079967c08fa4418d00b5774fbb6.jpg');
+  background-size: cover;
+  background-position:center;
+}
+.login-form, .signup-form {
+  height: 60%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+.login-form input, .signup-form input {
+  width: 30vw;
+  padding: 10px;
+  margin: 10px;
+}
+.login-form button, .signup-form button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+#bottomline {
+  color: white;
+  font-size: 1.1em;
+  text-shadow: 0 0 10px rgb(8, 58, 8);
+}
+#bottomline a {
+  color: white;
 }

@@ -31,6 +31,7 @@ const ItemReducer = (state = iState, action) => {
     case REMOVE_ITEM:
       let index = state.items.findIndex(item=>{if (item.id===action.payload){return true}})
       state.items.splice(index,1)
+      break
     case IS_COMPLETED:
       let i=state.items.findIndex(item=>{if (item.id === action.payload.id){return true}})
       state.items[i] = action.payload
