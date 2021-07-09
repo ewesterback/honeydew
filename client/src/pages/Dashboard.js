@@ -14,7 +14,7 @@ const Dashboard = (props) => {
         <div>
           <button onClick={props.logOut}>Log Out</button>
           <h1> Hey, you made it! :D Welcome!</h1>
-          <Todos
+          {/* <Todos
             itemState={itemState}
             loadTodosForList={props.loadTodosForList}
             submitTodo={props.submitTodo}
@@ -23,7 +23,7 @@ const Dashboard = (props) => {
             handleDateChange={props.handleDateChange}
             handlePriorityChange={props.handlePriorityChange}
             handleDelete={props.handleDelete}
-          />
+          /> */}
         </div>
       ) : (
         <Login {...props} fetchUser={fetchUser} />

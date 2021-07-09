@@ -48,8 +48,10 @@ const mapDispatchToProps = (dispatch) => {
     // setName: (value) => dispatch(StageName(value)),
     // setEmail: (value) => dispatch(StageEmail(value)),
     // setPass: (value) => dispatch(StagePass(value)),
-    postUser: (regEmail, regPassword, regUsername) => dispatch(AddUser(regEmail, regPassword, regUsername)),
-    fetchUser: (loginEmail, loginPassword) => dispatch(LoadUser(loginEmail, loginPassword)),
+    postUser: (regEmail, regPassword, regUsername) =>
+      dispatch(AddUser(regEmail, regPassword, regUsername)),
+    fetchUser: (loginEmail, loginPassword) =>
+      dispatch(LoadUser(loginEmail, loginPassword)),
     setAuth: (bool) => dispatch(SetAuth(bool))
   }
 }
@@ -59,7 +61,6 @@ function App(props) {
   const { userState, itemState, listState, postUser, fetchUser } = props
 
   //// AUTHENTICATION
-
 
   const logOut = () => {
     props.setAuth(false)
@@ -105,24 +106,27 @@ function App(props) {
     props.handleTodoForm()
   }
   const handleContentChange = (event) => {
-    let modifiedState = { ...itemState }
+    let modifiedState = { ...itemState.newItem }
     modifiedState.content = event.target.value
+    console.log(modifiedState)
     props.handleFormInput(modifiedState)
   }
   const handleTitleChange = (event) => {
     console.log(event)
-    let modifiedState = { ...itemState }
+    let modifiedState = { ...itemState.newItem }
     modifiedState.title = event.target.value
+    console.log(modifiedState)
     props.handleFormInput(modifiedState)
   }
   const handleDateChange = (event) => {
     console.log(event)
-    let modifiedState = { ...itemState }
+    let modifiedState = { ...itemState.newItem }
     modifiedState.due_date = event
+    console.log(modifiedState)
     props.handleFormInput(modifiedState)
   }
   const handlePriorityChange = (event) => {
-    let modifiedState = { ...itemState }
+    let modifiedState = { ...itemState.newItem }
     modifiedState.priority = event.target.value
     props.handleFormInput(modifiedState)
   }

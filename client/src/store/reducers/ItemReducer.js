@@ -28,6 +28,7 @@ const ItemReducer = (state = iState, action) => {
       return { ...state, items: action.payload }
     //similar to new content, title, etc, just done in one object
     case STAGE_ITEM:
+      console.log(action.payload)
       return {
         ...state,
         newItem: action.payload
@@ -36,14 +37,14 @@ const ItemReducer = (state = iState, action) => {
     case ADD_ITEM:
       return {
         ...state,
-        items: [...state.items, { ...action.payload }],
-        newItem: {
-          title: '',
-          content: '',
-          priority: '',
-          due_date: '',
-          list_id: ''
-        }
+        items: [...state.items, { ...action.payload }]
+        // newItem: {
+        //   title: '',
+        //   content: '',
+        //   priority: '',
+        //   due_date: '',
+        //   list_id: ''
+        // }
       }
     case TOGGLE_TODO_FORM:
       return {
