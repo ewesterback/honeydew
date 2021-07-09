@@ -5,9 +5,13 @@ body {
 .App {
   text-align: center;
 }
+/*////////////////////////////*/
+/* ---------- PAGES ----------*/
+/*////////////////////////////*/
 
-/* ----- PAGES ----- */
-/* LOGIN */
+
+/* --- LOGIN & SIGNUP --- */
+
 .login-page, .signup-page {
   height: 100vh;
   text-align: center;
@@ -38,4 +42,32 @@ body {
 }
 #bottomline a {
   color: white;
+}
+
+/* --- DASHBOARD --- */
+.dashboard-page {
+
+}
+.list-display{
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+
+
+
+/*////////////////////////////*/
+/* ------- COMPONENTS ------- */
+/*////////////////////////////*/
+
+/* --- LIST --- */
+.item-display {
+  width: 25vw;
+  margin: 15px;
+  padding: 15px;
+}
+
+/* --- ITEM --- */
+.oneitem {
+
 }
