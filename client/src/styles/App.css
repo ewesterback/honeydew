@@ -22,13 +22,55 @@ button {
 
 .login-page, .signup-page {
   height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  background-image: url('https://i.pinimg.com/originals/a3/ea/d0/a3ead079967c08fa4418d00b5774fbb6.jpg');
-  background-size: cover;
-  background-position:center;
+  background-image: url('../styles/abstract-angles-bg.png');
+}
+.login-page img, .signup-page img {
+  width:20%;
+  min-width:180px;
+  max-width: 300px;
+}
+.login-page h2 {
+  width: 80vw;
+  color: white;
+  font-size: 5em;
+  margin: 0;
+  font-family: 'Zen Loop', cursive;
+  text-shadow: 0 0 40px rgba(139, 0, 139,0.5);
+  transition: ease-in-out 0.3s;
+}
+.login-page h3 {
+  width: 80vw;
+  color: white;
+  font-size: 2em;
+  margin: 0 0 1em 0;
+  font-family: 'Righteous', cursive;
+  text-shadow: 0 0 30px rgba(139, 0, 139,0.3);
+  letter-spacing: 0.05em;
+  transition: ease-in-out 0.3s;
+}
+.intro {
+  background-color: #feffee;
+  margin: 1em 0;
+  padding: 0.5em 0em;
+  font-family: 'Overlock', sans-serif;
+  font-size: 1.3em;
+  width: 100%;
+  color: rgb(107, 86, 47);
+  line-height: 1.5em;
+}
+.title {
+  font-family: 'Zen Loop', cursive;
+  font-size: 1.3em;
+  letter-spacing: 0.04em;
+  font-weight: bold;
+  color: darkgreen;
 }
 .login-form, .signup-form {
-  height: 70%;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -36,10 +78,13 @@ button {
 }
 .login-form input, .signup-form input {
   width: 30vw;
+  min-width: 200px;
   padding: 10px;
   margin: 10px;
   border: none;
   border-radius: 5px;
+  font-family: 'Overlock', sans-serif;
+  font-size: 1.1em;
 }
 .login-form input:focus, .signup-form input:focus {
   border: rgb(190, 255, 174) solid 6px;
@@ -51,24 +96,39 @@ button {
 }
 
 .login-form button:hover, .signup-form button:hover {
-  background-color: rgb(171, 247, 152);
-  color: antiquewhite;
-  text-shadow: 0 0 3px darkgreen;
+  background-color: #76c35e;
+  color: #fbffc5;
+  text-shadow: 0 0 1em darkgreen;
   border-radius: 50%;
-  font-size: 1.2em;
+  font-size: 1.6em;
 }
 .login-form button:hover{
-  padding: 1.9em 1.2em;
+  padding: 1.55em 0.8em;
 }
 .signup-form button:hover {
-  padding: 2.1em 1em;
+  padding: 1.7em 0.6em;
 }
-#bottomline {
+.button-box {
+  height: 120px;
+  display:flex;
+  flex-flow:column;
+  justify-content:center;
+  align-items:center;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 1em 0;
+  width: 100%;
   color: white;
-  font-size: 1.1em;
-  text-shadow: 0 0 10px rgb(8, 58, 8);
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 1em rgb(8, 58, 8);
+  font-family: 'Overlock', sans-serif;
 }
-#bottomline a {
+footer a {
   color: white;
 }
 
@@ -76,13 +136,16 @@ button {
 .dashboard-page {
   height: 100vh;
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 15% 85%;
+  background-image: url('../styles/abstract-angles-bg.png');
 }
 aside {
+  z-index: 10;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  background-color: rgb(204, 196, 207);
+  min-width: 120px;
+  background-color: rgb(202, 172, 212);
   padding: 2em;
 }
 aside img {
@@ -92,7 +155,8 @@ aside button {
   margin: 1em 0em;
 }
 main {
-  padding: 4em;
+  background-color: rgba(255, 255, 255,0.85);
+  padding: 3em;
 }
 .list-display{
   display: flex;
@@ -119,4 +183,20 @@ main {
 /* --- ITEM --- */
 .oneitem {
 
+}
+
+/*////////////////////////////*/
+/* ------- MOBILE ------- */
+/*////////////////////////////*/
+
+@media screen and (max-width:700px){
+  .login-page h2 {
+    font-size: 3em;
+  }
+  .login-page h3 {
+    font-size: 1.3em;
+  }
+  .intro {
+    font-size: 0.8em;
+  }
 }

@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import logo from '../styles/honeydew-logo-bordered.png'
+
 
 const Login = (props) => {
   // console.log('login')
@@ -22,6 +24,9 @@ const Login = (props) => {
 
   return (
     <div className="login-page">
+      <img src={logo} />
+      <h2>Welcome back, honey!</h2>
+      <h3>Let's get dew it.</h3>
       <form className="login-form">
         <input
           type="email"
@@ -35,13 +40,13 @@ const Login = (props) => {
           onChange={handlePasswordChange}
           placeholder="Password"
         />
-        <div style={{height:'120px',display:'flex',flexFlow:'column',justifyContent:'center',alignItems:'center'}}>
+        <div className="button-box">
           <button onClick={logIn}>Log In</button>
         </div>
       </form>
-      <p id="bottomline">
-        Need an account? <a href="/register">Sign up now!</a>
-      </p>
+      <footer>
+        <br/><a href="/register">Need an account?</a>
+      </footer>
     </div>
   )
 }
