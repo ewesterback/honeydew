@@ -14,6 +14,7 @@ export const STAGE_LIST = 'STAGE_LIST'
 export const ADD_LIST = 'ADD_LIST'
 export const CHANGE_LIST = 'CHANGE_LIST'
 export const REMOVE_LIST = 'REMOVE_LIST'
+export const SELECT_LIST = 'SELECT_LIST'
 
 //// USER
 export const GET_USER = 'GET_USER'

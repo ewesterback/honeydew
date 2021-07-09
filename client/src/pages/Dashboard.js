@@ -10,7 +10,19 @@ const Dashboard = (props) => {
     // get lists by userID function from dispatch in App.js, when added
     loadListsForUser()
   }, [])
-  const mappedLists = listState.lists.map((list, i) => <p>{list.id}</p>)
+  const mappedLists = listState.lists.map((list, i) => (
+    <div>
+      <button
+        className="list-button"
+        key={i}
+        onClick={() => {
+          props.loadTodosForList(list)
+        }}
+      >
+        {list.title}
+      </button>
+    </div>
+  ))
   return (
     <>
       {userState.authenticated ? (
@@ -21,20 +33,22 @@ const Dashboard = (props) => {
             <button className="logout-button" onClick={props.logOut}>
               Log Out
             </button>
+            {mappedLists}
           </aside>
           <main>
             <h1> This is the dashboard</h1>
-            {mappedLists}
-            {/* <Todos
-            itemState={itemState}
-            loadTodosForList={props.loadTodosForList}
-            submitTodo={props.submitTodo}
-            handleContentChange={props.handleContentChange}
-            handleTitleChange={props.handleTitleChange}
-            handleDateChange={props.handleDateChange}
-            handlePriorityChange={props.handlePriorityChange}
-            handleDelete={props.handleDelete}
-          /> */}
+
+            <Todos
+              itemState={itemState}
+              loadTodosForList={props.loadTodosForList}
+              toggleNewTodoForm={props.toggleNewTodoForm}
+              submitTodo={props.submitTodo}
+              handleContentChange={props.handleContentChange}
+              handleTitleChange={props.handleTitleChange}
+              handleDateChange={props.handleDateChange}
+              handlePriorityChange={props.handlePriorityChange}
+              handleDelete={props.handleDelete}
+            />
           </main>
         </div>
       ) : (
