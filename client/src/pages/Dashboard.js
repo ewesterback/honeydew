@@ -34,6 +34,7 @@ const Dashboard = (props) => {
               Log Out
             </button>
             {mappedLists}
+            <button onClick={props.createNewList}>Add List</button>
           </aside>
           <main>
             <h1> This is the dashboard</h1>

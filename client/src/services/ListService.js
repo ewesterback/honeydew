@@ -14,3 +14,14 @@ export const GetListsByUser = async () => {
     throw error
   }
 }
+
+export const CreateList = async (title) => {
+  try {
+    let token = localStorage.getItem('token')
+    const res = await API.post(`./lists/user/${token}`, { title: title })
+    console.log(res)
+    return res.data // ??? or just res.data ??
+  } catch (error) {
+    throw error
+  }
+}
