@@ -1,12 +1,15 @@
 import API from './'
 
 export const GetUserByLogin = async (loginEmail, loginPassword) => {
+  let body = {
+    email: 'jd@mail.com',
+    password: 'abc'
+  }
+  console.log(body)
   try {
-    const res = await API.post(`/login`, {
-      email: loginEmail,
-      password: loginPassword
-    })
-    return res.data.user               // ??? or just res.data ??
+    const res = await API.post(`/login`, body)
+    console.log(res)
+    return res.data //res.data returns {payload: {email, id}, token: ''}
   } catch (error) {
     throw error
   }
@@ -19,7 +22,7 @@ export const PostNewUser = async (regEmail, regPassword, regUsername) => {
       email: regEmail,
       password: regPassword
     })
-    return res.data.user               // ??? or just res.data ??
+    return res.data.user // ??? or just res.data ??
   } catch (error) {
     throw error
   }
