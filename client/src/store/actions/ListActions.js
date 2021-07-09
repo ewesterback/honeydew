@@ -19,15 +19,19 @@ export const LoadLists = () => {
   }
 }
 
-export const SelectList = (list) => {
-  return async (dispatch) => {
-    try {
-      dispatch({
-        type: SELECT_LIST,
-        payload: list
-      })
-    } catch (error) {
-      throw error
-    }
-  }
-}
+export const SelectList = (list) => ({
+  type: SELECT_LIST,
+  payload: list
+})
+
+// {
+//   return (dispatch) => {
+//       dispatch({
+//         type: SELECT_LIST,
+//         payload: list
+//       })
+//     } catch (error) {
+//       throw error
+//     }
+//   }
+// }

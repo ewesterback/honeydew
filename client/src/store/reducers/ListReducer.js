@@ -3,18 +3,23 @@ const {
   STAGE_LIST,
   ADD_LIST,
   CHANGE_LIST,
-  REMOVE_LIST
+  REMOVE_LIST,
+  SELECT_LIST
 } = require('../types')
 
 const iState = {
   lists: [],
-  newList: {}
+  newList: {},
+  selectedList: null
 }
 
 const ListReducer = (state = iState, action) => {
   switch (action.type) {
     case GET_LISTS:
       return { ...state, lists: action.payload }
+    case SELECT_LIST:
+      console.log(action.payload)
+      return { ...state, selectedList: action.payload }
     case STAGE_LIST:
       return {
         ...state,
