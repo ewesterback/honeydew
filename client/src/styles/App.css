@@ -25,11 +25,12 @@ button {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   background-image: url('../styles/abstract-angles-bg.png');
 }
 .login-page img, .signup-page img {
+  margin-top:5%;
   width:20%;
   min-width:180px;
   max-width: 300px;
@@ -190,9 +191,26 @@ main {
   padding: 15px;
 }
 
-/* --- ITEM --- */
-.oneitem {
-
+/* --- TODO FORM --- */
+.todo-form {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+.form-card {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+.form-button-box {
+  margin-top: 1em;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /*////////////////////////////*/
