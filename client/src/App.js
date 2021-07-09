@@ -11,7 +11,7 @@ import {
   ToggleComplete,
   ToggleTodoForm
 } from './store/actions/ItemActions'
-import { LoadLists } from './store/actions/ListActions'
+import { LoadLists, SelectList } from './store/actions/ListActions'
 import {
   LoadUser,
   SetAuth,
@@ -45,6 +45,7 @@ const mapDispatchToProps = (dispatch) => {
     //   dispatch(ToggleComplete(itemID, status)),
     //// LISTS
     fetchLists: () => dispatch(LoadLists()),
+    selectList: (list) => dispatch(SelectList(list)),
     //// USER
     // setName: (value) => dispatch(StageName(value)),
     // setEmail: (value) => dispatch(StageEmail(value)),
@@ -94,8 +95,9 @@ function App(props) {
   //// ---------------------------------------------------------
   //// moved all of todo functions here since it was having issues
   //// --------------------------------------------------------
-  const loadTodosForList = (listId) => {
-    props.fetchTodos(listId)
+  const loadTodosForList = (list) => {
+    props.selectList(list)
+    props.fetchTodos(list.id)
   }
   const toggleNewTodoForm = () => {
     props.handleTodoForm()
@@ -189,6 +191,7 @@ function App(props) {
             logOut={logOut}
             itemState={itemState}
             loadTodosForList={loadTodosForList}
+            toggleNewTodoForm={toggleNewTodoForm}
             submitTodo={submitTodo}
             handleContentChange={handleContentChange}
             handleTitleChange={handleTitleChange}
