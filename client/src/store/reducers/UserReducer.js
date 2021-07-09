@@ -11,7 +11,7 @@ const {
 
 const iState = {
   user: {},
-  authenticated: false,
+  authenticated: true,
   username: '',
   email: '',
   password: ''

@@ -1,28 +1,29 @@
 import React, { useEffect } from 'react'
 import Login from './Login'
-import Todos from './Todos'
+
+import List from '../components/List'
 
 const Dashboard = (props) => {
   console.log('dashboard')
-  const { userState, fetchUser, itemState } = props
+  const { userState, fetchUser } = props
+
+  //// map through all lists for current user and display them
+
+
   useEffect(() => {
-    // get lists by userID function from dispatch in App.js, when added
+    //// get lists by userID function from dispatch in App.js, when added
   }, [])
   return (
     <div>
       {props.userState.authenticated ? (
-        <div>
-          <h1> Hey, you made it! :D Welcome!</h1>
-          <Todos
-            itemState={itemState}
-            loadTodosForList={props.loadTodosForList}
-            submitTodo={props.submitTodo}
-            handleContentChange={props.handleContentChange}
-            handleTitleChange={props.handleTitleChange}
-            handleDateChange={props.handleDateChange}
-            handlePriorityChange={props.handlePriorityChange}
-            handleDelete={props.handleDelete}
-          />
+        <div className="dashboard-page">
+        <h1> Hey, you made it! 😄 Welcome!</h1>
+        
+        <ul className="list-display">
+          <li><List/></li>
+          <li><List/></li>
+          <li><List/></li>
+        </ul>
         </div>
       ) : (
         <Login {...props} fetchUser={fetchUser} userState={userState} />
