@@ -5,9 +5,9 @@ import {
 import { 
   GET_USER,
   SET_AUTH,
-  STAGE_EMAIL,
-  STAGE_NAME,
-  STAGE_PW,
+  // STAGE_EMAIL,
+  // STAGE_NAME,
+  // STAGE_PW,
   ADD_NEW_USER,
   CHANGE_USER_INFO,
   REMOVE_USER
@@ -19,7 +19,7 @@ export const LoadUser = (loginEmail, loginPassword) => {
       const user = await GetUserByLogin(loginEmail, loginPassword)
       dispatch({ type: GET_USER, payload: user })
     } catch (error) {
-      throw error
+      return alert('Your username or password is incorrect')
     }
   }
 }
@@ -29,20 +29,20 @@ export const SetAuth = (bool) => ({
   payload: bool
 })
 
-export const StageName = (username) => ({
-  type: STAGE_NAME,
-  payload: username
-})
+// export const StageName = (username) => ({
+//   type: STAGE_NAME,
+//   payload: username
+// })
 
-export const StageEmail = (email) => ({
-  type: STAGE_EMAIL,
-  payload: email
-})
+// export const StageEmail = (email) => ({
+//   type: STAGE_EMAIL,
+//   payload: email
+// })
 
-export const StagePass = (pass) => ({
-  type: STAGE_PW,
-  payload: pass
-})
+// export const StagePass = (pass) => ({
+//   type: STAGE_PW,
+//   payload: pass
+// })
 
 export const AddUser = (regEmail, regPassword, regUsername) => {
   return async (dispatch) => {

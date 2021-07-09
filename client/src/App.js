@@ -15,9 +15,9 @@ import {} from './store/actions/ListActions'
 import {
   LoadUser,
   SetAuth,
-  StageName,
-  StageEmail,
-  StagePass,
+  // StageName,
+  // StageEmail,
+  // StagePass,
   AddUser
 } from './store/actions/UserActions'
 import Login from './pages/Login'
@@ -31,7 +31,7 @@ const mapStateToProps = ({ itemState, listState, userState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // ITEMS
+    //// ITEMS
     fetchTodos: (listId) => dispatch(LoadItems(listId)),
     handleTodoForm: () => dispatch(ToggleTodoForm()),
     handleFormInput: (inputs) => dispatch(StageItem(inputs)),
@@ -43,15 +43,13 @@ const mapDispatchToProps = (dispatch) => {
     // removeItem: (itemID) => dispatch(RemoveItem(itemID)),
     // toggleComplete: (itemID, status) =>
     //   dispatch(ToggleComplete(itemID, status)),
-    // LISTS
-    // USER
-    setName: (value) => dispatch(StageName(value)),
-    setEmail: (value) => dispatch(StageEmail(value)),
-    setPass: (value) => dispatch(StagePass(value)),
-    postUser: (regEmail, regPassword, regUsername) =>
-      dispatch(AddUser(regEmail, regPassword, regUsername)),
-    fetchUser: (loginEmail, loginPassword) =>
-      dispatch(LoadUser(loginEmail, loginPassword)),
+    //// LISTS
+    //// USER
+    // setName: (value) => dispatch(StageName(value)),
+    // setEmail: (value) => dispatch(StageEmail(value)),
+    // setPass: (value) => dispatch(StagePass(value)),
+    postUser: (regEmail, regPassword, regUsername) => dispatch(AddUser(regEmail, regPassword, regUsername)),
+    fetchUser: (loginEmail, loginPassword) => dispatch(LoadUser(loginEmail, loginPassword)),
     setAuth: (bool) => dispatch(SetAuth(bool))
   }
 }
@@ -62,6 +60,7 @@ function App(props) {
 
   //// AUTHENTICATION
 
+
   const logOut = () => {
     props.setAuth(false)
     localStorage.clear()
@@ -71,21 +70,21 @@ function App(props) {
     let token = localStorage.getItem('token')
     console.log(token)
     if (token) {
-      //return props.setAuth(true)
+      return props.setAuth(true)
     }
   }
-  const handleUsernameChange = (e) => {
-    props.setName(e.target.value)
-  }
-  const handleEmailChange = (e) => {
-    props.setEmail(e.target.value)
-  }
-  const handlePasswordChange = (e) => {
-    props.setPass(e.target.value)
-  }
-  // ---------------------------------------------------------
-  // moved all of todo functions here since it was having issues
-  // --------------------------------------------------------
+  // const handleUsernameChange = (e) => {
+  //   props.setName(e.target.value)
+  // }
+  // const handleEmailChange = (e) => {
+  //   props.setEmail(e.target.value)
+  // }
+  // const handlePasswordChange = (e) => {
+  //   props.setPass(e.target.value)
+  // }
+  //// ---------------------------------------------------------
+  //// moved all of todo functions here since it was having issues
+  //// --------------------------------------------------------
   const loadTodosForList = (listId) => {
     props.fetchTodos(listId)
   }
@@ -131,7 +130,7 @@ function App(props) {
     props.deleteTodo(id)
   }
 
-  // ---------------------------------------------------------
+  //// ---------------------------------------------------------
 
   useEffect(() => {
     getToken()
@@ -144,10 +143,9 @@ function App(props) {
         render={(props) => (
           <Login
             {...props}
-            userState={userState}
             fetchUser={fetchUser}
-            handleEmailChange={handleEmailChange}
-            handlePasswordChange={handlePasswordChange}
+            // handleEmailChange={handleEmailChange}
+            // handlePasswordChange={handlePasswordChange}
           />
         )}
       />
@@ -158,9 +156,9 @@ function App(props) {
             {...props}
             userState={userState}
             postUser={postUser}
-            handleEmailChange={handleEmailChange}
-            handlePasswordChange={handlePasswordChange}
-            handleUsernameChange={handleUsernameChange}
+            // handleEmailChange={handleEmailChange}
+            // handlePasswordChange={handlePasswordChange}
+            // handleUsernameChange={handleUsernameChange}
           />
         )}
       />
@@ -171,7 +169,8 @@ function App(props) {
           <Dashboard
             {...props}
             userState={userState}
-            fetchUser={props.fetchUser}
+            fetchUser={fetchUser}
+            logOut={logOut}
             // itemState={itemState}
             // loadTodosForList={loadTodosForList}
             // submitTodo={submitTodo}

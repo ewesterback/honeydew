@@ -15,8 +15,9 @@ const Dashboard = (props) => {
   }, [])
   return (
     <div>
-      {props.userState.authenticated ? (
+      {userState.authenticated ? (
         <div className="dashboard-page">
+          <button onClick={props.logOut}>Logout</button>
         <h1> Hey, you made it! 😄 Welcome!</h1>
         
         <ul className="list-display">
@@ -26,7 +27,7 @@ const Dashboard = (props) => {
         </ul>
         </div>
       ) : (
-        <Login {...props} fetchUser={fetchUser} userState={userState} />
+        <Login {...props} fetchUser={fetchUser} />
       )}
     </div>
   )
