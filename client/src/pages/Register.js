@@ -1,19 +1,22 @@
 import React from 'react'
 
-
-
 const Register = (props) => {
+  console.log('register')
 
   const signUp = async (e) => {
     e.preventDefault()
-    props.postUser(props.userState.username, props.userState.email, props.userState.password)
+    props.postUser(
+      props.userState.username,
+      props.userState.email,
+      props.userState.password
+    )
     props.history.push(`/`)
   }
 
-  return(
+  return (
     <div className="signup-page">
       <form className="signup-form">
-      <input
+        <input
           type="username"
           value={props.userState.username}
           onChange={props.handleUsernameChange}
@@ -34,8 +37,9 @@ const Register = (props) => {
         <button onClick={signUp}>Sign Up</button>
       </form>
       <p id="bottomline">
-        Already have an account? 
-        <a href="/login">Go ahead and log in!</a></p>
+        Already have an account?
+        <a href="/login">Go ahead and log in!</a>
+      </p>
     </div>
   )
 }

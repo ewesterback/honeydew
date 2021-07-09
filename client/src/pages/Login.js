@@ -1,7 +1,8 @@
 import React from 'react'
 
 const Login = (props) => {
-console.log(props)
+  console.log('login')
+  console.log(props)
   const logIn = async (e) => {
     e.preventDefault()
     props.fetchUser(props.userState.email, props.userState.password)
@@ -25,7 +26,9 @@ console.log(props)
         />
         <button onClick={logIn}>Log In</button>
       </form>
-      <p id="bottomline">Need an account? <a href="/register">Sign up now!</a></p>
+      <p id="bottomline">
+        Need an account? <a href="/register">Sign up now!</a>
+      </p>
     </div>
   )
 }

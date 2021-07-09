@@ -22,7 +22,7 @@ export const PostNewUser = async (regEmail, regPassword, regUsername) => {
       email: regEmail,
       password: regPassword
     })
-    return res.data.user // ??? or just res.data ??
+    return res.data // ??? or just res.data ??
   } catch (error) {
     throw error
   }

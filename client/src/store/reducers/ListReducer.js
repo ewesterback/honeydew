@@ -1,10 +1,10 @@
-const { 
+const {
   GET_LISTS,
   STAGE_LIST,
   ADD_LIST,
   CHANGE_LIST,
   REMOVE_LIST
- } = require('../types')
+} = require('../types')
 
 const iState = {
   lists: [],
@@ -27,8 +27,12 @@ const ListReducer = (state = iState, action) => {
         newList: {}
       }
     case REMOVE_LIST:
-      let index = state.lists.findIndex(list=>{if (list.id===action.payload){return true}})
-      state.lists.splice(index,1)
+      let index = state.lists.findIndex((list) => {
+        if (list.id === action.payload) {
+          return true
+        }
+      })
+      state.lists.splice(index, 1)
     default:
       return { ...state }
   }
