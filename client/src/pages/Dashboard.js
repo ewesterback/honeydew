@@ -5,10 +5,12 @@ import logo from '../styles/honeydew-logo.png'
 
 const Dashboard = (props) => {
   console.log('dashboard')
-  const { userState, fetchUser, itemState } = props
+  const { userState, fetchUser, itemState, listState, loadListsForUser } = props
   useEffect(() => {
     // get lists by userID function from dispatch in App.js, when added
+    loadListsForUser()
   }, [])
+  const mappedLists = listState.lists.map((list, i) => <p>{list.id}</p>)
   return (
     <>
       {userState.authenticated ? (
@@ -16,11 +18,14 @@ const Dashboard = (props) => {
           <aside>
             <img src={logo} alt="logo" height="80" />
             <button>My Profile</button>
-            <button className="logout-button" onClick={props.logOut}>Log Out</button>
+            <button className="logout-button" onClick={props.logOut}>
+              Log Out
+            </button>
           </aside>
           <main>
             <h1> This is the dashboard</h1>
-          {/* <Todos
+            {mappedLists}
+            {/* <Todos
             itemState={itemState}
             loadTodosForList={props.loadTodosForList}
             submitTodo={props.submitTodo}
