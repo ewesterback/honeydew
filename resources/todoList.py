@@ -3,6 +3,7 @@ from models.todoList import TodoList
 from sqlalchemy.orm import joinedload
 from flask_restful import Resource
 from flask import request
+from middleware import create_token, read_token, gen_password, compare_password, strip_token
 
 
 class TodoLists(Resource):
@@ -44,3 +45,29 @@ class TodoListDetails(Resource):
         db.session.delete(todo)
         db.session.commit()
         return todo.json()
+
+
+class TodoListsByUser(Resource):
+    def get(self, token):
+        # print(request)
+        # data = request.get_json()
+        # print('*******')
+        # print(data)
+        # print('***********')
+        print(token)
+        if token:
+            try:
+                payload = read_token(token)
+            except:
+                return {"message": "Unauthorized"}, 401
+        user_id = payload['id']
+        print(user_id)
+        lists = TodoList.query.options(joinedload(
+            'user'), joinedload('todos')).filter_by(user_id=user_id)
+
+        return [todo.json() for todo in lists]
+        # todo = TodoList.query.options(joinedload(
+        #     'user'), joinedload('todos')).filter_by(id=list_id).first()
+        # user = todo.user.json()
+        # print(todo.todos)
+        # return {**todo.json(), "user": user, "todos": [todo.json() for todo in todo.todos]}

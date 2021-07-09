@@ -22,7 +22,10 @@ class Login(Resource):
         return {"message": "Login Failed"}, 401
 
     def get(self):
+        print('**yo*****')
         token = strip_token(request)
+        print(request)
+        print(token)
         if token:
             try:
                 payload = read_token(token)
@@ -30,6 +33,7 @@ class Login(Resource):
             except:
                 return {"message": "Unauthorized"}, 401
         return {"message": "Unauthorized"}, 401
+        # return {"message": "okay"}, 200
 
 
 class Register(Resource):

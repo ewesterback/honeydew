@@ -11,7 +11,7 @@ import {
   ToggleComplete,
   ToggleTodoForm
 } from './store/actions/ItemActions'
-import {} from './store/actions/ListActions'
+import { LoadLists } from './store/actions/ListActions'
 import {
   LoadUser,
   SetAuth,
@@ -44,6 +44,7 @@ const mapDispatchToProps = (dispatch) => {
     // toggleComplete: (itemID, status) =>
     //   dispatch(ToggleComplete(itemID, status)),
     //// LISTS
+    fetchLists: () => dispatch(LoadLists()),
     //// USER
     // setName: (value) => dispatch(StageName(value)),
     // setEmail: (value) => dispatch(StageEmail(value)),
@@ -83,6 +84,13 @@ function App(props) {
   // const handlePasswordChange = (e) => {
   //   props.setPass(e.target.value)
   // }
+  //------------------------------------------------------------
+  // list functions
+  // ---------------------------------------------------------
+  const loadListsForUser = () => {
+    props.fetchLists()
+  }
+
   //// ---------------------------------------------------------
   //// moved all of todo functions here since it was having issues
   //// --------------------------------------------------------
@@ -171,11 +179,13 @@ function App(props) {
       <Route
         exact
         path="/"
-        component={(props) => (
+        render={(props) => (
           <Dashboard
             {...props}
             userState={userState}
             fetchUser={fetchUser}
+            loadListsForUser={loadListsForUser}
+            listState={listState}
             logOut={logOut}
             itemState={itemState}
             loadTodosForList={loadTodosForList}

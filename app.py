@@ -23,6 +23,7 @@ api.add_resource(user.Users, '/api/users')
 api.add_resource(user.UserDetail, '/api/user/<int:user_id>')
 api.add_resource(todoList.TodoLists, '/api/lists')
 api.add_resource(todoList.TodoListDetails, '/api/lists/<int:list_id>')
+api.add_resource(todoList.TodoListsByUser, '/api/lists/user/<string:token>')
 api.add_resource(todo.Todos, '/api/todos')
 api.add_resource(todo.TodoDetails, '/api/todos/<int:todo_id>')
 if __name__ == '__main__':

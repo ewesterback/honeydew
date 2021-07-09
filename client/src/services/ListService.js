@@ -1,13 +1,16 @@
 import API from './'
 
-export const GetListsByUser = async (userID) => {
+export const GetListsByUser = async () => {
   try {
-    const res = await API.get(
-      // get by userID from backend
-    )
-    return res.data.results  // ??? or just res.data ??
+    console.log('made it to service')
+    let token = localStorage.getItem('token')
+    console.log(token)
+    let tokenObj = { token: token }
+    console.log(tokenObj)
+    const res = await API.get(`./lists/user/${token}`)
+    console.log(res)
+    return res.data // ??? or just res.data ??
   } catch (error) {
     throw error
   }
 }
-
