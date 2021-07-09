@@ -5,6 +5,14 @@ body {
 .App {
   text-align: center;
 }
+button {
+  font-family: 'Righteous', cursive;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
 /*////////////////////////////*/
 /* ---------- PAGES ----------*/
 /*////////////////////////////*/
@@ -20,7 +28,7 @@ body {
   background-position:center;
 }
 .login-form, .signup-form {
-  height: 60%;
+  height: 70%;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -30,10 +38,30 @@ body {
   width: 30vw;
   padding: 10px;
   margin: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.login-form input:focus, .signup-form input:focus {
+  border: rgb(190, 255, 174) solid 6px;
+  outline: rgb(115, 228, 121) auto 5px;
+  margin: 4px;
 }
 .login-form button, .signup-form button {
-  padding: 8px 16px;
-  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.login-form button:hover, .signup-form button:hover {
+  background-color: rgb(171, 247, 152);
+  color: antiquewhite;
+  text-shadow: 0 0 3px darkgreen;
+  border-radius: 50%;
+  font-size: 1.2em;
+}
+.login-form button:hover{
+  padding: 1.9em 1.2em;
+}
+.signup-form button:hover {
+  padding: 2.1em 1em;
 }
 #bottomline {
   color: white;
@@ -46,11 +74,29 @@ body {
 
 /* --- DASHBOARD --- */
 .dashboard-page {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+aside {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  background-color: aquamarine;
+  padding: 2em;
+}
+aside button {
+  margin: 1em 0em;
+}
+main {
 
 }
 .list-display{
   display: flex;
   flex-flow: row nowrap;
+}
+.logout-button{
+
 }
 
 

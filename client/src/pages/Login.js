@@ -35,7 +35,9 @@ const Login = (props) => {
           onChange={handlePasswordChange}
           placeholder="Password"
         />
-        <button onClick={logIn}>Log In</button>
+        <div style={{height:'120px',display:'flex',flexFlow:'column',justifyContent:'center',alignItems:'center'}}>
+          <button onClick={logIn}>Log In</button>
+        </div>
       </form>
       <p id="bottomline">
         Need an account? <a href="/register">Sign up now!</a>

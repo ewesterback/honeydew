@@ -49,7 +49,9 @@ const Register = (props) => {
           onChange={handlePasswordChange}
           placeholder="Password"
         />
+        <div style={{height:'120px',display:'flex',flexFlow:'column',justifyContent:'center',alignItems:'center'}}>
         <button onClick={signUp}>Sign Up</button>
+        </div>
       </form>
       <p id="bottomline">
         Already have an account? <a href="/login">Go ahead and log in!</a>

@@ -9,11 +9,16 @@ const Dashboard = (props) => {
     // get lists by userID function from dispatch in App.js, when added
   }, [])
   return (
-    <div>
+    <>
       {userState.authenticated ? (
-        <div>
-          <button onClick={props.logOut}>Log Out</button>
-          <h1> Hey, you made it! :D Welcome!</h1>
+        <div className="dashboard-page">
+          <aside>
+
+            <button>My Profile</button>
+            <button className="logout-button" onClick={props.logOut}>Log Out</button>
+          </aside>
+          <main>
+            <h1> This is the dashboard</h1>
           {/* <Todos
             itemState={itemState}
             loadTodosForList={props.loadTodosForList}
@@ -24,11 +29,12 @@ const Dashboard = (props) => {
             handlePriorityChange={props.handlePriorityChange}
             handleDelete={props.handleDelete}
           /> */}
+          </main>
         </div>
       ) : (
         <Login {...props} fetchUser={fetchUser} />
       )}
-    </div>
+    </>
   )
 }
 export default Dashboard
