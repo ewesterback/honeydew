@@ -171,14 +171,14 @@ function App(props) {
             userState={userState}
             fetchUser={fetchUser}
             logOut={logOut}
-            // itemState={itemState}
-            // loadTodosForList={loadTodosForList}
-            // submitTodo={submitTodo}
-            // handleContentChange={handleContentChange}
-            // handleTitleChange={handleTitleChange}
-            // handleDateChange={handleDateChange}
-            // handlePriorityChange={handlePriorityChange}
-            // handleDelete={handleDelete}
+            itemState={itemState}
+            loadTodosForList={loadTodosForList}
+            submitTodo={submitTodo}
+            handleContentChange={handleContentChange}
+            handleTitleChange={handleTitleChange}
+            handleDateChange={handleDateChange}
+            handlePriorityChange={handlePriorityChange}
+            handleDelete={handleDelete}
           />
         )}
       />
@@ -186,6 +186,7 @@ function App(props) {
         path="/todos"
         render={(props) => (
           <Todos
+            {...props}
             itemState={itemState}
             loadTodosForList={loadTodosForList}
             toggleNewTodoForm={toggleNewTodoForm}
