@@ -10,7 +10,14 @@ import {
   ToggleComplete
 } from './store/actions/ItemActions'
 import {} from './store/actions/ListActions'
-import { LoadUser, SetAuth } from './store/actions/UserActions'
+import { 
+  LoadUser, 
+  SetAuth,
+  StageName,
+  StageEmail,
+  StagePass,
+  AddUser
+ } from './store/actions/UserActions'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
@@ -30,6 +37,11 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(ToggleComplete(itemID, status)),
     // LISTS
     // USER
+    setName: (value) => dispatch(StageName(value)),
+    setEmail: (value) => dispatch(StageEmail(value)),
+    setPass: (value) => dispatch(StagePass(value)),
+    postUser: (regEmail, regPassword, regUsername) =>
+      dispatch(AddUser(regEmail,regPassword,regUsername)),
     fetchUser: (loginEmail, loginPassword) =>
       dispatch(LoadUser(loginEmail, loginPassword)),
     setAuth: (bool) => dispatch(SetAuth(bool))
@@ -38,7 +50,7 @@ const mapDispatchToProps = (dispatch) => {
 
 function App(props) {
   const history = useHistory()
-  const { userState, itemState, listState } = props
+  const { userState, itemState, listState, postUser, fetchUser } = props
 
   //// AUTHENTICATION
 
@@ -54,6 +66,16 @@ function App(props) {
       //return props.setAuth(true)
     }
   }
+  const handleUsernameChange = (e) => {
+    props.setName(e.target.value)
+  }
+  const handleEmailChange = (e) => {
+    props.setEmail(e.target.value)
+  }
+  const handlePasswordChange = (e) => {
+    props.setPass(e.target.value)
+  }
+
   useEffect(() => {
     getToken()
   }, [])
@@ -62,8 +84,25 @@ function App(props) {
     <Switch>
       <Route
         path="/login"
-        component={(props) => (
-          <Login {...props} userState={userState} fetchUser={props.fetchUser} />
+        render={(props) => (
+          <Login {...props} 
+            userState={userState} 
+            fetchUser={fetchUser}
+            handleEmailChange={handleEmailChange}
+            handlePasswordChange={handlePasswordChange}
+          />
+        )}
+      />
+      <Route
+        path="/register"
+        render={(props) => (
+          <Register {...props} 
+            userState={userState} 
+            postUser={postUser}
+            handleEmailChange={handleEmailChange}
+            handlePasswordChange={handlePasswordChange}
+            handleUsernameChange={handleUsernameChange}
+          />
         )}
       />
       <Route
@@ -77,7 +116,6 @@ function App(props) {
           />
         )}
       />
-      <Register />
     </Switch>
   )
 }
