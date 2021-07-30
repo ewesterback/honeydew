@@ -5,7 +5,7 @@
 
 #### [Emily's GitHub](https://github.com/ewesterback) | [Emily's LinkedIn](https://www.linkedin.com/in/emily-westerback)
 
-#### [Emily's GitHub](https://github.com/ewesterback) | [Emily's LinkedIn](https://www.linkedin.com/in/emily-westerback)
+#### [Lindseys's GitHub](https://github.com/Lindsey-Moss) | [Lindsey's LinkedIn](https://www.linkedin.com/in/lindsey-zee-moss)
 ***
 
 
@@ -25,16 +25,16 @@ Honeydew allows users to login to view their personalized to-do lists.  They can
 
 ### *Getting Started*
 * To get started, create an account
-* The project has been deployed and can be viewed [here](link).
+* The project hasn't been deployed yet, stay tuned for future updates
 ***
 
 ### *Screenshots*
+##### Register
+![Register](https://imgur.com/QHrE903.jpg)
 ##### Login
-![Login](https://imgur.com/dkKVfOj.jpg)
-##### Search for mentors
-![Mentor Search](https://imgur.com/35JKolQ.jpg)
-##### Message mentors
-![Message Mentors](https://imgur.com/xCTWBHw.jpg)
+![Login](https://imgur.com/utfojcS.jpg)
+##### To-Do Lists
+![To-Do Lists](https://imgur.com/1MANh29.jpg)
 
 
 ***
@@ -42,4 +42,5 @@ Honeydew allows users to login to view their personalized to-do lists.  They can
 ### *Future Updates*
 - [] Refactor to use React Redux fully instead of passing as props
 - [] Delete To-Do Lists
+- [] Add sorting for to-do lists
 
