@@ -18,7 +18,6 @@ const ListReducer = (state = iState, action) => {
     case GET_LISTS:
       return { ...state, lists: action.payload }
     case SELECT_LIST:
-      console.log(action.payload)
       return { ...state, selectedList: action.payload }
     case STAGE_LIST:
       return {

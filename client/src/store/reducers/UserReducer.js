@@ -1,4 +1,4 @@
-const { 
+const {
   GET_USER,
   SET_AUTH,
   // STAGE_PW,
@@ -7,11 +7,11 @@ const {
   ADD_NEW_USER,
   CHANGE_USER_INFO,
   REMOVE_USER
- } = require('../types')
+} = require('../types')
 
 const iState = {
   user: {},
-  authenticated: false,
+  authenticated: false
   // username: '',
   // email: '',
   // password: ''
@@ -19,43 +19,25 @@ const iState = {
 
 const UserReducer = (state = iState, action) => {
   switch (action.type) {
-    // case STAGE_EMAIL:
-    //   console.log(`Supposedly updating state w/ email: ${state.email}`)
-    //   return {
-    //     ...state,
-    //     email: action.payload.email
-    //   }
-    // case STAGE_NAME:
-    //   console.log(`Supposedly updating state w/ username: ${state.username}`)
-    //   return {
-    //     ...state,
-    //     username: action.payload.username
-    //   }
-    // case STAGE_PW:
-    //   console.log(`Supposedly updating state w/ password: ${state.password}`)
-    //   return {
-    //     ...state,
-    //     password: action.payload.password
-    //   }
     case ADD_NEW_USER:
-        return {
-          ...state,
-          // username: '',
-          // email: '',
-          // password: ''
-        }
+      return {
+        ...state
+        // username: '',
+        // email: '',
+        // password: ''
+      }
     case GET_USER:
       localStorage.setItem('token', action.payload.token)
-      return { 
-        ...state, 
+      return {
+        ...state,
         user: action.payload,
-        authenticated: true,
+        authenticated: true
         // username: '',
         // email: '',
         // password: ''
       }
     case SET_AUTH:
-      return {...state, authenticated: action.payload}
+      return { ...state, authenticated: action.payload }
     default:
       return { ...state }
   }
