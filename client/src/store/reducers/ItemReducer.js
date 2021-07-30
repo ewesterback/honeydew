@@ -28,7 +28,6 @@ const ItemReducer = (state = iState, action) => {
       return { ...state, items: action.payload }
     //similar to new content, title, etc, just done in one object
     case STAGE_ITEM:
-      console.log(action.payload)
       return {
         ...state,
         newItem: action.payload
@@ -59,16 +58,9 @@ const ItemReducer = (state = iState, action) => {
         }
       }
     case REMOVE_ITEM: //DELETE_TODO
-      // let index = state.items.findIndex((item) => {
-      //   if (item.id === action.payload) {
-      //     return true
-      //   }
-      // })
-      // state.items.splice(index, 1)
-      // break
       return {
         ...state,
-        items: state.items.filter((todo) => todo.id !== action.payload.item)
+        items: state.items.filter((todo) => todo.id !== action.payload)
       }
     case IS_COMPLETED:
       let i = state.items.findIndex((item) => {

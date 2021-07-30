@@ -2,13 +2,9 @@ import API from './'
 
 export const GetListsByUser = async () => {
   try {
-    console.log('made it to service')
     let token = localStorage.getItem('token')
-    console.log(token)
-    let tokenObj = { token: token }
-    console.log(tokenObj)
+    //let tokenObj = { token: token }
     const res = await API.get(`./lists/user/${token}`)
-    console.log(res)
     return res.data // ??? or just res.data ??
   } catch (error) {
     throw error
@@ -19,8 +15,7 @@ export const CreateList = async (title) => {
   try {
     let token = localStorage.getItem('token')
     const res = await API.post(`./lists/user/${token}`, { title: title })
-    console.log(res)
-    return res.data // ??? or just res.data ??
+    return res.data
   } catch (error) {
     throw error
   }

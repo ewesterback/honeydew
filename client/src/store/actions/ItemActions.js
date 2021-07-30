@@ -51,6 +51,8 @@ export const RemoveItem = (itemID) => {
   return async (dispatch) => {
     try {
       const item = await DeleteItem(itemID)
+      console.log(item)
+      console.log(itemID)
       dispatch({
         type: REMOVE_ITEM,
         payload: itemID

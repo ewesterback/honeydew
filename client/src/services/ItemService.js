@@ -1,18 +1,15 @@
 import API from './'
 
 export const GetItemsByList = async (listID) => {
-  console.log(listID)
   try {
-    const res = await API.get(`/lists/${listID}`) // whatever emily sets it as
-    console.log(res.data)
-    return res.data.todos // ???
+    const res = await API.get(`/lists/${listID}`)
+    return res.data.todos
   } catch (error) {
     throw error
   }
 }
 
 export const PostNewItem = async (newItem) => {
-  console.log(newItem)
   try {
     const res = await API.post(
       '/todos', // whatever emily sets it as
