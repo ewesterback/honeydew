@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Login from './Login'
+import Register from './Register'
 import Todos from './Todos'
 import logo from '../styles/honeydew-logo.png'
 
@@ -139,7 +140,7 @@ const Dashboard = (props) => {
       ) : (
         <div>
           <Login {...props} fetchUser={fetchUser} />
-          <Register {...props} userState={userState} postUser={postUser} />
+          {/* <Register {...props} userState={userState} postUser={postUser} /> */}
         </div>
       )}
     </>
