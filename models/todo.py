@@ -26,7 +26,6 @@ class Todo(db.Model):
         self.list_id = list_id
 
     def json(self):
-        print('hi')
         return {"id": self.id, "title": self.title, "content": self.content, "priority": str(self.priority), "due_date": str(self.due_date), "list_id": str(self.list_id), "created_at": str(self.created_at), "updated_at": str(self.updated_at)}
 
     def create(self):
