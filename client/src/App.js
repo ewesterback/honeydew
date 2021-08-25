@@ -152,6 +152,7 @@ function App(props) {
   return (
     <Switch>
       <Route
+        exact
         path="/login"
         render={(props) => (
           <Login
@@ -163,6 +164,7 @@ function App(props) {
         )}
       />
       <Route
+        exact
         path="/register"
         render={(props) => (
           <Register
@@ -200,6 +202,7 @@ function App(props) {
         )}
       />
       <Route
+        exact
         path="/todos"
         render={(props) => (
           <Todos
