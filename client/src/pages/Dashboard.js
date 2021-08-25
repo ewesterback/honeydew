@@ -137,7 +137,10 @@ const Dashboard = (props) => {
           </main>
         </div>
       ) : (
-        <Login {...props} fetchUser={fetchUser} />
+        <div>
+          <Login {...props} fetchUser={fetchUser} />
+          <Register {...props} userState={userState} postUser={postUser} />
+        </div>
       )}
     </>
   )
