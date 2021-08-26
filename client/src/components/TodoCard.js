@@ -5,6 +5,7 @@ import honeydew1 from '../styles/honeydew1.png'
 import honeydewslice from '../styles/honeydewslice.png'
 
 const TodoCard = (props) => {
+
   return (
     <div className="to-do-card">
       <Card
@@ -32,6 +33,7 @@ const TodoCard = (props) => {
           {moment(props.todo.due_date).format('M-D-YYYY')}
         </p>
         <p style={{ textAlign: 'justify' }}>{props.todo.content}</p>
+
         <Button
           variant="destructive"
           onClick={() => props.handleDelete(props.todo.id)}

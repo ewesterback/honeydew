@@ -25,6 +25,7 @@ const Dashboard = (props) => {
     setNewListClicked(false)
   }
   const mappedLists = listState.lists.map((list, i) => (
+
     <div key={i}>
       {listState.selectedList ? (
         listState.selectedList.id === list.id ? (
@@ -111,6 +112,7 @@ const Dashboard = (props) => {
           </aside>
           <main>
             {listState.selectedList ? (
+
               <h1
                 style={{
                   fontFamily: 'Zen Loop,cursive',
