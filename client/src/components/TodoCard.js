@@ -5,21 +5,20 @@ import honeydew1 from '../styles/honeydew1.png'
 import honeydewslice from '../styles/honeydewslice.png'
 
 const TodoCard = (props) => {
-  // const priorityCheck = () => {
-  //   switch (props.todo.priority) {
-  //     case 1:
-  //         <img src={honeydew1} width='10'/>
-  //       break;
-  //     case 2:
-  //       break;
-  //     case 3:
-  //       <img src={honeydewslice} width='10'/>
-  //       break;
-  //     default:
-  //       'wut'
-  //       break;
-  //   }
-  // }
+  const priorityCheck = () => {
+    switch (props.todo.priority) {
+      case 1:
+          <img src={honeydew1} />
+        break;
+      case 2:
+        break;
+      case 3:
+        <img src={honeydewslice} />
+        break;
+      default:
+        break;
+    }
+  }
   return (
     <div className="to-do-card">
       <Card
@@ -35,7 +34,7 @@ const TodoCard = (props) => {
             Due {moment(props.todo.due_date).fromNow()}
           </h4>
         </topper>
-        {/* <p>{priorityCheck}</p> */}
+        <p>{priorityCheck}</p>
         <p style={{fontFamily:'Zen Loop,cursive',margin:'0',fontSize:'1.3em',textAlign:'right'}}>{moment(props.todo.due_date).format('M-D-YYYY')}</p>
         <p style={{textAlign:'justify'}}>{props.todo.content}</p>
         <Button

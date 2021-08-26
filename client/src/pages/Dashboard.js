@@ -11,7 +11,7 @@ const Dashboard = (props) => {
     loadListsForUser()
   }, [])
   const mappedLists = listState.lists.map((list, i) => (
-    <div>
+    <div className="list-button-box">
       <button
         className="list-button"
         key={i}
@@ -39,7 +39,7 @@ const Dashboard = (props) => {
           </aside>
           <main>
             {listState.selectedList ? (
-              <h1 style={{fontFamily:'Zen Loop,cursive',fontSize:'3em',margin:'0 0 0.5em 0'}}>{listState.selectedList.title}</h1>
+              <h1 style={{fontFamily:'Zen Loop,cursive',fontSize:'3em',margin:'0.5em 0 0.5em 0'}}>{listState.selectedList.title}</h1>
             ) : (
               <h1>Please Select a list to see the todos</h1>
             )}

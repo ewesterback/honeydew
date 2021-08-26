@@ -147,7 +147,7 @@ footer a {
 .dashboard-page {
   height: 100vh;
   display: grid;
-  grid-template-columns: 15% 85%;
+  grid-template-columns: 20% 80%;
   background-image: url('../styles/abstract-angles-bg.png');
 }
 aside {
@@ -156,6 +156,7 @@ aside {
   flex-flow: column wrap;
   align-items: center;
   min-width: 120px;
+  max-width: 200px;
   background-color: rgb(202, 172, 212);
   padding: 2em;
 }
@@ -164,6 +165,9 @@ aside img {
 }
 aside button {
   margin: 1em 0em;
+}
+.list-link {
+  width: 100%;
 }
 main {
   background-color: rgba(255, 255, 255,0.85);
@@ -178,6 +182,18 @@ main {
   background-color: darkmagenta;
   border-radius: 25px;
   color: white;
+}
+.list-button-box{
+  width: 100%;
+}
+.list-button {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Overlock', cursive;
+  letter-spacing: 0.03em;
 }
 .addlist-button{
   margin-top: 3em;
