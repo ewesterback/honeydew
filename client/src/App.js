@@ -24,6 +24,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import Todos from './pages/Todos'
+import TestPage from './pages/TestPage'
 
 const mapStateToProps = ({ itemState, listState, userState }) => {
   return { itemState, listState, userState }
@@ -151,6 +152,7 @@ function App(props) {
 
   return (
     <Switch>
+      <Route exact path="/test" render={TestPage} />
       <Route
         exact
         path="/login"
