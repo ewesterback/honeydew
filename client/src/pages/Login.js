@@ -1,9 +1,7 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import logo from '../styles/honeydew-logo-bordered.png'
 
-
 const Login = (props) => {
-  // console.log('login')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -17,7 +15,6 @@ const Login = (props) => {
 
   const logIn = async (e) => {
     e.preventDefault()
-    console.log(e.target.value)
     props.fetchUser(email, password)
     props.history.push(`/`)
   }
@@ -47,7 +44,8 @@ const Login = (props) => {
         </div>
       </form>
       <footer>
-        <br/><a href="/register">Need an account?</a>
+        <br />
+        <a href="/register">Need an account?</a>
       </footer>
     </div>
   )

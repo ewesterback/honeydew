@@ -13,14 +13,17 @@ button {
   cursor: pointer;
   padding: 10px 20px;
 }
+h2 {
+  font-family: 'Righteous', cursive;
+}
 /*////////////////////////////*/
 /* ---------- PAGES ----------*/
 /*////////////////////////////*/
 
-
 /* --- LOGIN & SIGNUP --- */
 
-.login-page, .signup-page {
+.login-page,
+.signup-page {
   height: 100vh;
   display: flex;
   flex-flow: column wrap;
@@ -29,10 +32,11 @@ button {
   text-align: center;
   background-image: url('../styles/abstract-angles-bg.png');
 }
-.login-page img, .signup-page img {
-  margin-top:5%;
-  width:20%;
-  min-width:180px;
+.login-page img,
+.signup-page img {
+  margin-top: 5%;
+  width: 20%;
+  min-width: 180px;
   max-width: 300px;
   margin-bottom: 1em;
 }
@@ -80,13 +84,15 @@ button {
   font-weight: bold;
   color: darkgreen;
 }
-.login-form, .signup-form {
+.login-form,
+.signup-form {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
 }
-.login-form input, .signup-form input {
+.login-form input,
+.signup-form input {
   width: 30vw;
   min-width: 200px;
   padding: 10px;
@@ -96,24 +102,27 @@ button {
   font-family: 'Overlock', sans-serif;
   font-size: 1.1em;
 }
-.login-form input:focus, .signup-form input:focus {
+.login-form input:focus,
+.signup-form input:focus {
   border: rgb(190, 255, 174) solid 6px;
   outline: rgb(115, 228, 121) auto 5px;
   margin: 4px;
 }
-.login-form button, .signup-form button {
+.login-form button,
+.signup-form button {
   transition: ease-in-out 0.2s;
   background-color: #ede4f6;
 }
 
-.login-form button:hover, .signup-form button:hover {
+.login-form button:hover,
+.signup-form button:hover {
   background-color: #76c35e;
   color: #fbffc5;
   text-shadow: 0 0 1em darkgreen;
   border-radius: 50%;
   font-size: 1.6em;
 }
-.login-form button:hover{
+.login-form button:hover {
   padding: 1.55em 0.8em;
 }
 .signup-form button:hover {
@@ -121,10 +130,10 @@ button {
 }
 .button-box {
   height: 120px;
-  display:flex;
-  flex-flow:column;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 footer {
   position: absolute;
@@ -170,39 +179,28 @@ aside button {
   width: 100%;
 }
 main {
-  background-color: rgba(255, 255, 255,0.85);
+  background-color: rgba(255, 255, 255, 0.85);
   padding: 3em;
 }
-.list-display{
+.list-display {
   display: flex;
   flex-flow: row nowrap;
 }
-.logout-button{
+.logout-button {
   margin-top: 3em;
   background-color: darkmagenta;
   border-radius: 25px;
   color: white;
 }
-.list-button-box{
-  width: 100%;
-}
-.list-button {
-  width: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Overlock', cursive;
-  letter-spacing: 0.03em;
-}
-.addlist-button{
+
+.addlist-button {
   margin-top: 3em;
   border-radius: 25px;
   background-color: #bdeb9b;
 }
-
-
-
+.selected-list {
+  background-color: #76c35e;
+}
 
 /*////////////////////////////*/
 /* ------- COMPONENTS ------- */
@@ -238,11 +236,11 @@ main {
 }
 
 /* --- TODO CARD --- */
-.to-do-card{
+.to-do-card {
   width: 70%;
   padding: 1.5em 1em;
 }
-topper {
+.topper {
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
@@ -251,15 +249,17 @@ topper {
   font-family: 'Righteous', cursive;
   letter-spacing: 0.05em;
 }
-topper h4 {
+.topper h4 {
   font-family: 'Zen Loop', cursive;
 }
-
+.high-priority {
+  color: red;
+}
 /*////////////////////////////*/
 /* ------- MOBILE ------- */
 /*////////////////////////////*/
 
-@media screen and (max-width:700px){
+@media screen and (max-width: 700px) {
   .login-page h2 {
     font-size: 3em;
   }

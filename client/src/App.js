@@ -24,6 +24,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import Todos from './pages/Todos'
+import TestPage from './pages/TestPage'
 
 const mapStateToProps = ({ itemState, listState, userState }) => {
   return { itemState, listState, userState }
@@ -67,12 +68,12 @@ function App(props) {
 
   const logOut = () => {
     props.setAuth(false)
+    props.selectList(null)
     localStorage.clear()
     history.push('/')
   }
   const getToken = () => {
     let token = localStorage.getItem('token')
-    console.log(token)
     if (token) {
       return props.setAuth(true)
     }
@@ -92,8 +93,8 @@ function App(props) {
   const loadListsForUser = () => {
     props.fetchLists()
   }
-  const createNewList = () => {
-    props.createList('home improvement')
+  const createNewList = (value) => {
+    props.createList(value)
   }
   //// ---------------------------------------------------------
   //// moved all of todo functions here since it was having issues
@@ -109,7 +110,6 @@ function App(props) {
     event.preventDefault()
     let date = moment(props.itemState.newItem.due_date).format('M-D-YYYY')
     let priority = props.itemState.newItem.priority ? 1 : 2
-    console.log(listState.selectedList)
     let reqBody = {
       title: props.itemState.newItem.title,
       content: props.itemState.newItem.content,
@@ -152,7 +152,9 @@ function App(props) {
 
   return (
     <Switch>
+      <Route exact path="/test" render={TestPage} />
       <Route
+        exact
         path="/login"
         render={(props) => (
           <Login
@@ -164,6 +166,7 @@ function App(props) {
         )}
       />
       <Route
+        exact
         path="/register"
         render={(props) => (
           <Register
@@ -201,6 +204,7 @@ function App(props) {
         )}
       />
       <Route
+        exact
         path="/todos"
         render={(props) => (
           <Todos

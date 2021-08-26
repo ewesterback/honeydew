@@ -12,7 +12,6 @@ class Todos(Resource):
 
     def post(self):
         data = request.get_json()
-        print(data)
         params = {}
         for k in data.keys():
             params[k] = data[k]
@@ -31,7 +30,6 @@ class TodoDetails(Resource):
     def put(self, todo_id):
         data = request.get_json()
         todo = Todo.find_by_id(todo_id)
-        print(todo)
         for k in data.keys():
             setattr(todo, k, data[k])
         db.session.commit()

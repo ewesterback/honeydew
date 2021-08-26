@@ -26,13 +26,11 @@ class TodoListDetails(Resource):
         todo = TodoList.query.options(joinedload(
             'user'), joinedload('todos')).filter_by(id=list_id).first()
         user = todo.user.json()
-        print(todo.todos)
         return {**todo.json(), "user": user, "todos": [todo.json() for todo in todo.todos]}
 
     def put(self, list_id):
         data = request.get_json()
         todo = TodoList.find_by_id(list_id)
-        print(todo)
         for k in data.keys():
             setattr(todo, k, data[k])
         db.session.commit()
@@ -49,45 +47,27 @@ class TodoListDetails(Resource):
 
 class TodoListsByUser(Resource):
     def get(self, token):
-        # print(request)
-        # data = request.get_json()
-        # print('*******')
-        # print(data)
-        # print('***********')
-        print(token)
         if token:
             try:
                 payload = read_token(token)
             except:
                 return {"message": "Unauthorized"}, 401
         user_id = payload['id']
-        print(user_id)
         lists = TodoList.query.options(joinedload(
             'user'), joinedload('todos')).filter_by(user_id=user_id)
 
         return [todo.json() for todo in lists]
-        # todo = TodoList.query.options(joinedload(
-        #     'user'), joinedload('todos')).filter_by(id=list_id).first()
-        # user = todo.user.json()
-        # print(todo.todos)
-        # return {**todo.json(), "user": user, "todos": [todo.json() for todo in todo.todos]}
 
     def post(self, token):
-        # print(request)
         data = request.get_json()
-        # print('*******')
-        print(data)
-        # print('***********')
-        print(token)
         if token:
             try:
                 payload = read_token(token)
             except:
                 return {"message": "Unauthorized"}, 401
         user_id = payload['id']
-        print(user_id)
         params = {
-            'title': 'Home Improvement',
+            'title': data['title'],
             'user_id': user_id
         }
         todo = TodoList(**params)
