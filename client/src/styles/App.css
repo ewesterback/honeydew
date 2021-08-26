@@ -155,8 +155,9 @@ footer a {
 /* --- DASHBOARD --- */
 .dashboard-page {
   height: 100vh;
-  display: grid;
-  grid-template-columns: 20% 80%;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
   background-image: url('../styles/abstract-angles-bg.png');
 }
 aside {
@@ -164,6 +165,7 @@ aside {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  width:20%;
   min-width: 120px;
   max-width: 200px;
   background-color: rgb(202, 172, 212);
@@ -181,6 +183,7 @@ aside button {
 main {
   background-color: rgba(255, 255, 255, 0.85);
   padding: 3em;
+  width: 100%;
 }
 .list-display {
   display: flex;
