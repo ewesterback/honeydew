@@ -24,8 +24,9 @@ Honeydew allows users to login to view their personalized to-do lists.  They can
 ***
 
 ### *Getting Started*
-* To get started, create an account
-* The project hasn't been deployed yet, stay tuned for future updates
+* The project has been deployed via Heroku, and can be accessed [here](https://tender-banach-257997.netlify.app/).
+* To get started, create an account via the Sign Up button. Then, log in.
+* Once logged in, you can create to-do lists, add to-do items to their specific list, etc.
 ***
 
 ### *Screenshots*
